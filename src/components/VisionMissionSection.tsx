@@ -50,7 +50,7 @@ const coreValues = [
 
 export default function VisionMissionSection() {
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="vision-mission" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Our Vision & Mission"

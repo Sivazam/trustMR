@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Play, Calendar, Users, Building2, HeartPulse, GraduationCap } from "lucide-react";
+import { Play, Heart, Calendar, Users, Building2, HeartPulse, GraduationCap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface MediaItem {
@@ -48,7 +48,7 @@ const mediaItems: MediaItem[] = [
     src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
     thumbnail: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
     title: "Interfaith Programs",
-    description: "Promoting harmony among all communities",
+    description: "Promoting unity among all communities",
     span: "col-span-1 row-span-1",
     category: "Harmony",
   },
@@ -81,10 +81,18 @@ export default function ImpactSection() {
     { icon: Building2, value: "Multiple", label: "Religious Institutions" },
   ];
 
+  const toggleVideo = (src: string) => {
+    if (playingVideo === src) {
+      setPlayingVideo(null);
+    } else {
+      setPlayingVideo(src);
+    }
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-blue-900 via-blue-950 to-green-900 text-white relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -98,9 +106,10 @@ export default function ImpactSection() {
             Creating meaningful change in communities through dedicated service and compassion
           </p>
           <div className="w-24 h-1 bg-amber-400 mx-auto mt-6" />
-        </motion.div>
+        </motion.div> */}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+        {/* Statistics Row */}
+        {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
@@ -120,85 +129,88 @@ export default function ImpactSection() {
               </motion.div>
             );
           })}
-        </div>
+        </div> */}
 
-        <motion.div
+        {/* Bento Grid of Media Items */}
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-fr gap-4 mb-12"
         >
-          {mediaItems.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className={`${item.span} relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 group`}
-              style={{ gridRow: item.span.includes('row-span-2') ? 'span 2' : 'span 1' }}
-            >
-              <div className="relative aspect-[4/3] bg-black">
-                {item.type === "video" ? (
-                  <>
-                    {playingVideo === item.src ? (
-                      <video
-                        src={item.src}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover"
-                        onPause={() => setPlayingVideo(null)}
-                      />
-                    ) : (
-                      <>
-                        <img
-                          src={item.thumbnail}
-                          alt={item.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          {mediaItems.map((item, index) => {
+            const Icon = item.type === "video" ? Play : Heart;
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                className={`${item.span} relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 group`}
+                style={{ gridRow: item.span.includes('row-span-2') ? 'span 2' : 'span 1' }}
+              >
+            
+                <div className="relative aspect-[4/3] bg-black">
+                  {item.type === "video" ? (
+                    <>
+                      {playingVideo === item.src ? (
+                        <video
+                          src={item.src}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <button
-                            onClick={() => setPlayingVideo(item.src)}
-                            className="w-16 h-16 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-all hover:scale-110"
-                          >
-                            <Play className="h-6 w-6 text-blue-900 ml-1" />
-                          </button>
-                        </div>
-                      </>
-                    )}
-                  </>
-                ) : (
-                  <>
+                      ) : (
+                        <>
+                          <img
+                            src={item.thumbnail}
+                            alt={item.title}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button
+                              onClick={() => toggleVideo(item.src)}
+                              className="w-16 h-16 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-lg"
+                            >
+                              <Play className="h-7 w-7 text-blue-900 ml-1" />
+                            </button>
+                          </div>
+                        </>
+                      )}
+                    </>
+                  ) : (
                     <img
                       src={item.thumbnail}
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  </>
-                )}
-              </div>
-
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="bg-amber-500 text-white text-xs px-2 py-1 rounded-full font-medium">
-                    {item.category}
-                  </span>
+                  )}
                 </div>
-                <h3 className="font-semibold text-white text-lg leading-tight">
-                  {item.title}
-                </h3>
-                <p className="text-blue-100 text-sm">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
 
+         
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 via-black/80 to-transparent">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="bg-amber-500 text-white text-xs px-3 py-1.5 rounded-full font-semibold">
+                      {item.category}
+                    </span>
+                  </div>
+                  <h3 className="font-semibold text-white text-lg leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-blue-100 text-sm">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div> */}
+
+        {/* Quote */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}

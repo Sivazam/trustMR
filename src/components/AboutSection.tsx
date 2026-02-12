@@ -75,9 +75,9 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
         >
-          <div className="space-y-6">
+          <div className="space-y-6 order-2 lg:order-1">
             <h3 className="font-serif text-3xl font-bold text-blue-900">
               Our Foundation
             </h3>
@@ -96,15 +96,15 @@ export default function AboutSection() {
               <span className="font-medium text-blue-900">10+ Years of Selfless Service</span>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative order-1 lg:order-2">
             <img
               src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80"
               alt="Community Service"
               className="rounded-2xl shadow-soft-2xl w-full h-80 object-cover"
             />
-            <div className="absolute -bottom-6 -left-6 bg-amber-500 text-white p-6 rounded-2xl shadow-soft-xl">
-              <div className="text-4xl font-bold font-serif">10+</div>
-              <div className="text-sm">Years of Service</div>
+            <div className="absolute -bottom-4 -left-4 lg:-bottom-6 lg:-left-6 bg-amber-500 text-white p-4 lg:p-6 rounded-2xl shadow-soft-xl">
+              <div className="text-3xl lg:text-4xl font-bold font-serif">10+</div>
+              <div className="text-xs lg:text-sm">Years of Service</div>
             </div>
           </div>
         </motion.div>

@@ -1,297 +1,382 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { Play, HeartPulse, GraduationCap, Building2, Users, Calendar } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import SectionHeader from "@/components/SectionHeader";
-import { HeartPulse, GraduationCap, Shield, Star, MapPin, Users, CheckCircle } from "lucide-react";
-
-const healthcareServices = [
-  {
-    title: "Hospital Volunteer Services",
-    items: [
-      "Deployment of trained volunteers in hospitals",
-      "Assisting patients and their families during treatment",
-      "Guiding the general public inside hospitals",
-      "Supporting hospital staff during peak hours",
-    ],
-  },
-  {
-    title: "Public Health Support",
-    items: [
-      "Continuous involvement in medical social service activities",
-      "Supporting needy patients whenever possible",
-      "Creating awareness on health, hygiene, and basic medical care",
-    ],
-  },
-];
-
-const educationServices = [
-  {
-    title: "Support for Government Schools",
-    items: [
-      "Active involvement in educational initiatives",
-      "Special focus on girl students",
-      "Encouraging discipline, confidence, and physical fitness",
-    ],
-  },
-];
-
-const womenEmpowermentBenefits = [
-  { icon: CheckCircle, text: "Increased self-confidence" },
-  { icon: CheckCircle, text: "Self-protection skills" },
-  { icon: CheckCircle, text: "Physical and mental strength" },
-  { icon: CheckCircle, text: "Discipline and leadership qualities" },
-];
-
-const interfaithSupport = [
-  {
-    community: "Hindu Community Support",
-    icon: "🕉️",
-    services: [
-      "Financial and material support for temple construction",
-      "Renovation and reconstruction support",
-      "Providing musical and ritual instruments",
-      "Supporting temple development",
-    ],
-  },
-  {
-    community: "Muslim Community Support",
-    icon: "☪️",
-    services: [
-      "Installation of CCTV surveillance systems in Masjids",
-      "Providing public address systems",
-      "Supporting safety and communication needs",
-    ],
-  },
-  {
-    community: "Christian Community Support",
-    icon: "✝️",
-    services: [
-      "Organizing Christmas celebrations every December",
-      "Conducting Christian Maha Sabhas",
-      "Food distribution during Christmas",
-      "Supporting unity-focused gatherings",
-    ],
-  },
-];
 
 export default function InitiativesDetail() {
+  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
+
+  const toggleVideo = (src: string) => {
+    if (playingVideo === src) {
+      setPlayingVideo(null);
+    } else {
+      setPlayingVideo(src);
+    }
+  };
+
+  const videos = [
+    {
+      title: "Hospital Volunteer Services in Action",
+      src: "https://www.w3schools.com/html/mov_bbb.mp4",
+      thumbnail: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
+      description: "Watch our volunteers serving patients in hospitals with dedication and compassion",
+    },
+  ];
+
   return (
-    <section className="py-20 bg-background">
+    <section id="initiatives-detail" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Our Initiatives in Detail"
-          subtitle="Deep dive into our comprehensive programs serving diverse community needs"
+          subtitle="Comprehensive programs designed to create lasting positive change in society"
         />
 
-        <div className="space-y-24">
+        {/* Healthcare & Medical Services */}
+        <div className="mb-16">
+          <div className="flex items-center space-x-3 mb-6">
+            <div className="w-14 h-14 bg-blue-900/10 rounded-2xl flex items-center justify-center">
+              <HeartPulse className="h-7 w-7 text-blue-900" />
+            </div>
+            <h2 className="font-serif text-3xl font-bold text-blue-900">
+              Healthcare & Medical Services
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card className="shadow-soft-xl rounded-2xl border-0">
+              <CardContent className="p-6">
+                <h3 className="font-serif text-xl font-semibold text-blue-900 mb-4">
+                  Hospital Volunteer Services
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Deployment of trained volunteers in hospitals</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Assisting patients and their families during treatment</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Guiding the general public inside hospitals</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Supporting hospital staff during peak hours</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-soft-xl rounded-2xl border-0">
+              <CardContent className="p-6">
+                <h3 className="font-serif text-xl font-semibold text-blue-900 mb-4">
+                  Public Health Support
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Continuous involvement in medical social service activities</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Supporting needy patients whenever possible</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Creating awareness on health, hygiene, and basic medical care</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Video Showcase */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="mt-8"
           >
-            <div className="flex items-center space-x-3 mb-8">
-              <div className="w-14 h-14 bg-blue-900/10 rounded-2xl flex items-center justify-center">
-                <HeartPulse className="h-7 w-7 text-blue-900" />
-              </div>
-              <div>
-                <Badge className="bg-blue-900 text-white mb-2">Healthcare</Badge>
-                <h2 className="font-serif text-3xl font-bold text-blue-900">
-                  Healthcare & Medical Services
-                </h2>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {healthcareServices.map((service, index) => (
-                <Card key={service.title} className="shadow-soft-xl rounded-2xl border-0">
-                  <CardContent className="p-6">
-                    <h3 className="font-serif text-xl font-semibold text-blue-900 mb-4">
-                      {service.title}
-                    </h3>
-                    <ul className="space-y-3">
-                      {service.items.map((item, idx) => (
-                        <li key={idx} className="flex items-start space-x-3">
-                          <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
-                          <span className="text-muted-foreground">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center space-x-3 mb-8">
-              <div className="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center">
-                <GraduationCap className="h-7 w-7 text-amber-500" />
-              </div>
-              <div>
-                <Badge className="bg-amber-500 text-white mb-2">Education</Badge>
-                <h2 className="font-serif text-3xl font-bold text-blue-900">
-                  Education & Skill Development
-                </h2>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <Card className="shadow-soft-xl rounded-2xl border-0">
-                <CardContent className="p-6">
-                  {educationServices.map((service) => (
-                    <div key={service.title}>
-                      <h3 className="font-serif text-xl font-semibold text-blue-900 mb-4">
-                        {service.title}
-                      </h3>
-                      <ul className="space-y-3">
-                        {service.items.map((item, idx) => (
-                          <li key={idx} className="flex items-start space-x-3">
-                            <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
-                            <span className="text-muted-foreground">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
-
-              <div className="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80"
-                  alt="Education"
-                  className="rounded-2xl shadow-soft-2xl w-full h-64 object-cover"
-                />
-                <div className="absolute -bottom-4 -right-4 bg-amber-500 text-white p-4 rounded-xl shadow-lg">
-                  <div className="flex items-center space-x-2">
-                    <GraduationCap className="h-6 w-6" />
-                    <span className="font-semibold">Focus on Girls</span>
-                  </div>
+            <Card className="shadow-soft-2xl rounded-2xl border-0 overflow-hidden">
+              <CardContent className="p-6">
+                <h3 className="font-serif text-xl font-semibold text-blue-900 mb-4">
+                  Hospital Services in Action
+                </h3>
+                <div className="relative aspect-video bg-black rounded-xl overflow-hidden">
+                  {playingVideo === videos[0].src ? (
+                    <video
+                      src={videos[0].src}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <>
+                      <img
+                        src={videos[0].thumbnail}
+                        alt={videos[0].title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <button
+                          onClick={() => toggleVideo(videos[0].src)}
+                          className="w-20 h-20 bg-white/95 hover:bg-white rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-xl"
+                        >
+                          <Play className="h-10 w-10 text-blue-900 ml-1" />
+                        </button>
+                      </div>
+                    </>
+                  )}
                 </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </motion.div>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center space-x-3 mb-8">
-              <div className="w-14 h-14 bg-green-800/10 rounded-2xl flex items-center justify-center">
-                <Shield className="h-7 w-7 text-green-800" />
-              </div>
-              <div>
-                <Badge className="bg-green-800 text-white mb-2">Empowerment</Badge>
-                <h2 className="font-serif text-3xl font-bold text-blue-900">
-                  Women Empowerment Initiative
-                </h2>
-              </div>
+        {/* Education & Skill Development */}
+        <div className="mb-16">
+          <div className="flex items-center space-x-3 mb-6">
+            <div className="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center">
+              <GraduationCap className="h-7 w-7 text-amber-500" />
             </div>
+            <h2 className="font-serif text-3xl font-bold text-blue-900">
+              Education & Skill Development
+            </h2>
+          </div>
 
-            <Card className="shadow-soft-xl rounded-2xl border-0 mb-8">
+          <Card className="shadow-soft-xl rounded-2xl border-0">
+            <CardContent className="p-6">
+              <h3 className="font-serif text-xl font-semibold text-blue-900 mb-4">
+                  Support for Government Schools
+                </h3>
+              <ul className="space-y-3">
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Active involvement in educational initiatives</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Special focus on girl students in government schools</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Encouraging discipline, confidence, and physical fitness</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+        </div>
+
+        {/* Women Empowerment Initiative */}
+        <div className="mb-16">
+          <div className="flex items-center space-x-3 mb-6">
+            <div className="w-14 h-14 bg-green-800/10 rounded-2xl flex items-center justify-center">
+              <Users className="h-7 w-7 text-green-800" />
+            </div>
+            <h2 className="font-serif text-3xl font-bold text-blue-900">
+              Women Empowerment Initiative
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card className="shadow-soft-xl rounded-2xl border-0 lg:col-span-1">
               <CardContent className="p-6">
                 <h3 className="font-serif text-xl font-semibold text-blue-900 mb-4">
                   Free Martial Arts Training for Girls
                 </h3>
-                <div className="flex items-center space-x-2 text-muted-foreground mb-6">
-                  <MapPin className="h-4 w-4" />
-                  <span>Conducted in Government Schools in Kakinada</span>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                  <div className="bg-muted/50 rounded-xl p-4 text-center">
-                    <Users className="h-8 w-8 text-blue-900 mx-auto mb-2" />
-                    <p className="text-sm font-medium">Qualified Lady Trainer</p>
-                  </div>
-                  <div className="bg-muted/50 rounded-xl p-4 text-center">
-                    <HeartPulse className="h-8 w-8 text-amber-500 mx-auto mb-2" />
-                    <p className="text-sm font-medium">Free Training</p>
-                  </div>
-                  <div className="bg-muted/50 rounded-xl p-4 text-center">
-                    <Star className="h-8 w-8 text-green-800 mx-auto mb-2" />
-                    <p className="text-sm font-medium">Government Schools</p>
-                  </div>
-                </div>
-
-                <p className="text-muted-foreground italic bg-muted/30 p-4 rounded-xl">
-                  This initiative has positively impacted many girl students and continues to inspire courage and confidence.
+                <p className="text-muted-foreground mb-4">
+                  Conducted in Government Schools in Kakinada with appointment of a qualified Lady Martial Arts Trainer providing free self-defense and martial arts training.
                 </p>
+                
+                <h4 className="font-semibold text-blue-900 mb-4 mt-6">Benefits for Girl Students:</h4>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="bg-amber-500/10 p-4 rounded-xl text-center">
+                    <div className="text-3xl font-bold font-serif text-amber-600 mb-2">💪</div>
+                    <p className="text-sm text-muted-foreground">Increased Self-Confidence</p>
+                  </div>
+                  <div className="bg-green-800/10 p-4 rounded-xl text-center">
+                    <div className="text-3xl font-bold font-serif text-green-800 mb-2">🛡️</div>
+                    <p className="text-sm text-muted-foreground">Self-Protection Skills</p>
+                  </div>
+                  <div className="bg-blue-900/10 p-4 rounded-xl text-center">
+                    <div className="text-3xl font-bold font-serif text-blue-900 mb-2">💪</div>
+                    <p className="text-sm text-muted-foreground">Physical & Mental Strength</p>
+                  </div>
+                  <div className="bg-amber-500/10 p-4 rounded-xl text-center">
+                    <div className="text-3xl font-bold font-serif text-amber-600 mb-2">🌟</div>
+                    <p className="text-sm text-muted-foreground">Discipline and Leadership Qualities</p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {womenEmpowermentBenefits.map((benefit) => {
-                const Icon = benefit.icon;
-                return (
-                  <Card key={benefit.text} className="shadow-lg rounded-xl border-0">
-                    <CardContent className="p-4 text-center">
-                      <div className="w-10 h-10 bg-amber-500/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-                        <Icon className="h-5 w-5 text-amber-500" />
-                      </div>
-                      <p className="text-sm font-medium">{benefit.text}</p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </motion.div>
+            <Card className="shadow-soft-xl rounded-2xl border-0">
+              <CardContent className="p-6 bg-gradient-to-br from-blue-50 to-amber-50/10">
+                <p className="text-muted-foreground italic mb-4">
+                  "This initiative has positively impacted many girl students and continues to inspire courage and confidence."
+                </p>
+                <p className="text-sm text-blue-900 font-medium">
+                  Malladi Ramarao Trust
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center space-x-3 mb-8">
-              <div className="w-14 h-14 bg-blue-900/10 rounded-2xl flex items-center justify-center">
-                <Shield className="h-7 w-7 text-blue-900" />
-              </div>
-              <div>
-                <Badge className="bg-blue-900 text-white mb-2">Harmony</Badge>
-                <h2 className="font-serif text-3xl font-bold text-blue-900">
-                  Interfaith Harmony & Community Services
-                </h2>
-              </div>
+        {/* Interfaith Harmony */}
+        <div className="mb-16">
+          <div className="flex items-center space-x-3 mb-6">
+            <div className="w-14 h-14 bg-blue-900/10 rounded-2xl flex items-center justify-center">
+              <Building2 className="h-7 w-7 text-blue-900" />
             </div>
+            <h2 className="font-serif text-3xl font-bold text-blue-900">
+              Interfaith Harmony & Community Services
+            </h2>
+          </div>
 
-            <div className="bg-gradient-to-br from-blue-900/5 to-amber-500/5 rounded-2xl p-8 mb-8">
-              <p className="text-2xl font-serif text-center text-blue-900 italic mb-2">
-                "Service to Humanity is Service to God."
-              </p>
-              <p className="text-center text-muted-foreground">— Our Guiding Principle</p>
-            </div>
+          <div className="bg-gradient-to-br from-blue-900/5 to-green-900/5 p-6 rounded-2xl mb-8">
+            <p className="text-xl font-serif italic text-white text-center mb-6">
+              "Service to Humanity is Service to God."
+            </p>
+            <p className="text-center text-blue-100">
+              — Our Guiding Principle
+            </p>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {interfaithSupport.map((community) => (
-                <Card key={community.community} className="shadow-soft-xl rounded-2xl border-0">
-                  <CardContent className="p-6">
-                    <div className="text-4xl mb-4">{community.icon}</div>
-                    <h3 className="font-serif text-xl font-semibold text-blue-900 mb-4">
-                      {community.community}
-                    </h3>
-                    <ul className="space-y-3">
-                      {community.services.map((service, idx) => (
-                        <li key={idx} className="flex items-start space-x-3">
-                          <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">{service}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Hindu Community */}
+            <Card className="shadow-soft-xl rounded-2xl border-0">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-center mb-4">
+                  <div className="text-4xl">🛕️</div>
+                </div>
+                <h3 className="font-serif text-xl font-semibold text-blue-900 mb-4 text-center">
+                  Hindu Community Support
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Financial and material support for temple construction</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Donations for renovation and reconstruction</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Providing musical and ritual instruments</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Supporting temple maintenance and development</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Muslim Community */}
+            <Card className="shadow-soft-xl rounded-2xl border-0">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-center mb-4">
+                  <div className="text-4xl">☪️</div>
+                </div>
+                <h3 className="font-serif text-xl font-semibold text-blue-900 mb-4 text-center">
+                  Muslim Community Support
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Installation of CCTV surveillance systems in Masjids</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Providing in-sound & public address systems</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Supporting safety, communication, and community needs</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Christian Community */}
+            <Card className="shadow-soft-xl rounded-2xl border-0">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-center mb-4">
+                  <div className="text-4xl">⛪</div>
+                </div>
+                <h3 className="font-serif text-xl font-semibold text-blue-900 mb-4 text-center">
+                  Christian Community Support
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Organizing Christmas celebrations every December</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Conducting Christian Maha Sabhas</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Food distribution during Christmas</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Supporting unity-focused gatherings</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Social Harmony Section */}
+        <div className="mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="shadow-soft-xl rounded-2xl border-0">
+              <CardContent className="p-6">
+                <h3 className="font-serif text-xl font-semibold text-blue-900 mb-4">
+                  Promoting Peace & Unity
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Promote peace and unity</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Strengthen social bonds</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">Encourage mutual respect</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-soft-xl rounded-2xl border-0">
+              <CardContent className="p-6">
+                <h3 className="font-serif text-xl font-semibold text-blue-900 mb-4">
+                  Our Commitment
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Through interfaith initiatives, the Trust works to promote peace, unity, and harmony among all communities. We ensure that service has no religion and reaches everyone with equal dignity and respect.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </section>

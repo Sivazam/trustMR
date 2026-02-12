@@ -21,7 +21,9 @@ export const metadata: Metadata = {
   keywords: ["Malladi Ramarao Trust", "Charity", "NGO", "Social Service", "Healthcare", "Education", "Women Empowerment", "Interfaith Harmony", "Kakinada"],
   authors: [{ name: "Malladi Ramarao Trust" }],
   icons: {
-    icon: "/logo.svg",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
   openGraph: {
     title: "Malladi Ramarao Trust | Serving Society Selflessly",
@@ -43,9 +45,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="m-0 p-0 overflow-x-hidden w-full">
       <head>
-        <script
+            <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -53,7 +55,7 @@ export default function RootLayout({
               "@type": "NGO",
               name: "Malladi Ramarao Trust",
               url: "https://malladiramarao-trust.org",
-              logo: "https://malladiramarao-trust.org/logo.svg",
+              logo: "https://malladiramarao-trust.org/logo.png",
               description: "Registered charitable trust serving society for over 10 years through healthcare, education, women empowerment, and interfaith harmony initiatives.",
               address: {
                 "@type": "PostalAddress",
@@ -69,7 +71,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${playfairDisplay.variable} ${inter.variable} antialiased bg-background text-foreground`}
+        className={`${playfairDisplay.variable} ${inter.variable} antialiased bg-background text-foreground m-0 p-0 overflow-x-hidden w-full`}
       >
         {children}
         <Toaster />

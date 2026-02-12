@@ -36,7 +36,8 @@ export default function CTAButton({
       <Button
         onClick={handleClick}
         className={`
-          rounded-2xl shadow-soft-xl px-8 py-6 text-base font-semibold transition-all
+          items-center justify-center leading-tight
+          rounded-2xl shadow-soft-xl px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-semibold transition-all
           ${variant === "primary"
             ? "bg-amber-500 hover:bg-amber-600 text-white"
             : "bg-blue-900 hover:bg-blue-800 text-white"
@@ -44,7 +45,9 @@ export default function CTAButton({
           ${className}
         `}
       >
-        {children}
+        <span className="inline-flex items-center justify-center">
+          {children}
+        </span>
       </Button>
     </motion.div>
   );

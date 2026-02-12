@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -21,6 +21,7 @@ export default function Navigation() {
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Initiatives", href: "#initiatives" },
+    { name: "Videos", href: "#videos" },
     { name: "Gallery", href: "#gallery" },
     { name: "Donate", href: "#donate" },
     { name: "Contact", href: "#contact" },
@@ -39,7 +40,7 @@ export default function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
         scrolled ? "bg-white/95 backdrop-blur-md shadow-soft-xl" : "bg-black/30 backdrop-blur-sm"
       }`}
     >
@@ -47,17 +48,19 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           <a
             href="#home"
-            className="flex items-center space-x-2 group"
+            className="flex items-center space-x-3 group"
             onClick={(e) => {
               e.preventDefault();
               handleNavClick("#home");
             }}
           >
-            <div className="bg-amber-500 text-white p-2 rounded-xl group-hover:scale-110 transition-transform shadow-lg">
-              <Heart className="h-6 w-6" />
-            </div>
-            <div className="hidden sm:block">
-              <span className={`block font-serif font-bold text-lg ${scrolled ? "text-blue-900" : "text-white"} group-hover:text-amber-500 transition-colors`}>
+            <img
+              src="/logo.png"
+              alt="Malladi Ramarao Trust Logo"
+              className="h-14 w-auto object-contain group-hover:scale-105 transition-transform"
+            />
+            <div className="block">
+              <span className={`block font-serif font-bold text-base ${scrolled ? "text-blue-900" : "text-white"} group-hover:text-amber-500 transition-colors`}>
                 Malladi Ramarao
               </span>
               <span className={`block text-xs ${scrolled ? "text-muted-foreground" : "text-blue-200"}`}>Trust</span>
@@ -100,14 +103,15 @@ export default function Navigation() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white border-b"
+            className="md:hidden bg-white border-b w-full"
+            style={{ zIndex: 60 }}
           >
-            <div className="container mx-auto px-4 py-6 space-y-4">
+            <div className="container mx-auto px-4 py-6 space-y-4 w-full">
               {navLinks.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link.href)}
-                  className="block w-full text-left text-foreground hover:text-amber-500 font-medium"
+                  className="block w-full text-left text-foreground hover:text-amber-500 font-medium py-2"
                 >
                   {link.name}
                 </button>

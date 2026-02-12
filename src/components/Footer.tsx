@@ -1,16 +1,18 @@
-import { Heart, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1E3A8A] text-white mt-auto">
+    <footer className="bg-[#1E3A8A] text-white mt-auto w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="bg-amber-500 p-2 rounded-xl">
-                <Heart className="h-6 w-6 text-white" />
-              </div>
+            <div className="flex items-center space-x-3">
+              <img
+                src="/logo.png"
+                alt="Malladi Ramarao Trust Logo"
+                className="h-16 w-auto object-contain"
+              />
               <div>
                 <span className="block font-serif font-bold text-lg">Malladi Ramarao</span>
                 <span className="block text-xs text-blue-200">Trust</span>
