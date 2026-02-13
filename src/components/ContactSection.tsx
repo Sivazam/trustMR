@@ -81,7 +81,7 @@ export default function ContactSection() {
                     <Input
                       id="contact-phone"
                       type="tel"
-                      placeholder="+91 XXXXXXXXXX"
+                      placeholder="+91 9848037766"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="rounded-xl mt-1"
@@ -142,7 +142,7 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <p className="font-medium text-blue-900">Phone</p>
-                      <p className="text-muted-foreground">+91 XXXXXXXXXX</p>
+                      <p className="text-muted-foreground">+91 9848037766</p>
                     </div>
                   </div>
 
@@ -152,7 +152,7 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <p className="font-medium text-blue-900">Email</p>
-                      <p className="text-muted-foreground">info@malladiramarao-trust.org</p>
+                      <p className="text-muted-foreground">malladiramaraotrust@gmail.com</p>
                     </div>
                   </div>
                 </div>

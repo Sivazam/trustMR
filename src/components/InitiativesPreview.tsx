@@ -36,7 +36,7 @@ const initiatives = [
     icon: Shield,
     title: "Women Empowerment",
     description: "Free martial arts training for girls in government schools, building confidence and self-defense skills.",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80",
+    image: "https://riseinfinity.org/wp-content/uploads/2017/11/Women-Empowerment_RISE-Infinity_Idobro-Impact.jpg",
     features: [
       "Free Martial Arts Training",
       "Self-Defense Skills",
@@ -48,7 +48,7 @@ const initiatives = [
     icon: Users,
     title: "Interfaith Harmony Initiatives",
     description: "Promoting unity and mutual respect among all religious communities through support and service.",
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80",
+    image: "https://assets.thehansindia.com/h-upload/2025/02/01/1519466-harmony.jpg",
     features: [
       "Hindu Temple Support",
       "Muslim Masjid Support",

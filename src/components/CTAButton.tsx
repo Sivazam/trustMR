@@ -19,10 +19,12 @@ export default function CTAButton({
   const handleClick = (e: React.MouseEvent) => {
     if (href) {
       e.preventDefault();
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
     }
     onClick?.();
   };
@@ -36,7 +38,7 @@ export default function CTAButton({
       <Button
         onClick={handleClick}
         className={`
-          items-center justify-center leading-tight
+          h-auto items-center justify-center
           rounded-2xl shadow-soft-xl px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-semibold transition-all
           ${variant === "primary"
             ? "bg-amber-500 hover:bg-amber-600 text-white"
@@ -45,9 +47,7 @@ export default function CTAButton({
           ${className}
         `}
       >
-        <span className="inline-flex items-center justify-center">
-          {children}
-        </span>
+        {children}
       </Button>
     </motion.div>
   );

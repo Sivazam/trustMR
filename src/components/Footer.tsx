@@ -88,11 +88,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-amber-500 flex-shrink-0" />
-                <span className="text-blue-100 text-sm">+91 XXXXXXXXXX</span>
+                <span className="text-blue-100 text-sm">+91 9848037766</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-amber-500 flex-shrink-0" />
-                <span className="text-blue-100 text-sm">info@malladiramarao-trust.org</span>
+                <span className="text-blue-100 text-sm">malladiramaraotrust@gmail.com</span>
               </li>
             </ul>
           </div>

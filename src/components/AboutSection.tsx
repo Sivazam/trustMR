@@ -98,9 +98,9 @@ export default function AboutSection() {
           </div>
           <div className="relative order-1 lg:order-2">
             <img
-              src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80"
+              src="/media/main.jpeg"
               alt="Community Service"
-              className="rounded-2xl shadow-soft-2xl w-full h-80 object-cover"
+              className="rounded-2xl shadow-soft-2xl w-full h-80 object-cover object-top"
             />
             <div className="absolute -bottom-4 -left-4 lg:-bottom-6 lg:-left-6 bg-amber-500 text-white p-4 lg:p-6 rounded-2xl shadow-soft-xl">
               <div className="text-3xl lg:text-4xl font-bold font-serif">10+</div>

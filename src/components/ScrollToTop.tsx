@@ -1,53 +1,49 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { animateScroll } from "react-scroll";
 import { ArrowUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export default function ScrollToTop() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
-
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+    animateScroll.scrollToTop({
+      duration: 500,
+      smooth: "easeInOutQuad",
     });
   };
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0 }}
-          transition={{ duration: 0.3 }}
-          className="fixed bottom-6 right-6 z-40"
-        >
-          <Button
-            onClick={scrollToTop}
-            size="icon"
-            className="h-12 w-12 rounded-full bg-blue-900 hover:bg-blue-800 text-white shadow-2xl hover:scale-110 transition-all"
-            aria-label="Scroll to top"
-          >
-            <ArrowUp className="h-6 w-6" />
-          </Button>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <button
+      onClick={scrollToTop}
+      style={{
+        position: 'fixed',
+        bottom: '2rem',
+        right: '1.5rem',
+        zIndex: 2147483647,
+        width: '3.5rem',
+        height: '3.5rem',
+        borderRadius: '50%',
+        backgroundColor: '#F59E0B',
+        color: '#FFFFFF',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        border: '4px solid #DC2626',
+        boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+        transition: 'all 0.3s'
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.backgroundColor = '#D97706';
+        e.currentTarget.style.transform = 'scale(1.1)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.backgroundColor = '#F59E0B';
+        e.currentTarget.style.transform = 'scale(1)';
+      }}
+      aria-label="Scroll to top"
+      type="button"
+    >
+      <ArrowUp style={{ width: '1.75rem', height: '1.75rem' }} />
+    </button>
   );
 }

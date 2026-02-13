@@ -14,8 +14,23 @@ export default function Navigation() {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+
+    // Close menu when clicking outside
+    const handleClickOutside = (e: MouseEvent) => {
+      if (isOpen) {
+        const navElement = document.querySelector('nav');
+        if (navElement && !navElement.contains(e.target as Node)) {
+          setIsOpen(false);
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   const navLinks = [
     { name: "Home", href: "#home" },
@@ -23,16 +38,17 @@ export default function Navigation() {
     { name: "Initiatives", href: "#initiatives" },
     { name: "Videos", href: "#videos" },
     { name: "Gallery", href: "#gallery" },
-    { name: "Donate", href: "#donate" },
     { name: "Contact", href: "#contact" },
   ];
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
   };
 
   return (
@@ -96,29 +112,29 @@ export default function Navigation() {
         </div>
       </div>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white border-b w-full"
-            style={{ zIndex: 60 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-white border-b w-full shadow-lg"
+            style={{ zIndex: 60, position: 'absolute', top: '100%', left: 0, right: 0 }}
           >
-            <div className="container mx-auto px-4 py-6 space-y-4 w-full">
+            <div className="container mx-auto px-4 py-6 space-y-3 w-full">
               {navLinks.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link.href)}
-                  className="block w-full text-left text-foreground hover:text-amber-500 font-medium py-2"
+                  className="block w-full text-left text-foreground hover:text-amber-500 font-medium py-3 text-base transition-colors"
                 >
                   {link.name}
                 </button>
               ))}
               <Button
                 onClick={() => handleNavClick("#donate")}
-                className="w-full bg-amber-500 hover:bg-amber-600 text-white rounded-2xl"
+                className="w-full bg-amber-500 hover:bg-amber-600 text-white rounded-2xl mt-4"
               >
                 Donate Now
               </Button>

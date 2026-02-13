@@ -53,7 +53,7 @@ export default function DonateSection() {
   };
 
   return (
-    <section id="donate" className="py-20 bg-gradient-to-br from-muted/30 to-background">
+    <section className="py-20 bg-gradient-to-br from-muted/30 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Your Contribution Creates Real Impact"
@@ -87,7 +87,7 @@ export default function DonateSection() {
           })}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        <div id="donate" className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 scroll-mt-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -151,14 +151,14 @@ export default function DonateSection() {
                         onClick={() => setPaymentMethod("upi")}
                         className={`rounded-xl h-auto py-4 sm:py-6 ${
                           paymentMethod === "upi"
-                            ? "bg-blue-900 text-white"
-                            : "hover:border-blue-900"
+                            ? "bg-blue-900 text-white hover:bg-blue-800"
+                            : "hover:bg-blue-900 hover:text-white hover:border-blue-900"
                         }`}
                       >
-                        <Smartphone className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
-                        <div className="text-left">
-                          <div className="font-semibold text-base sm:text-lg">UPI</div>
-                          <div className="text-xs sm:text-sm opacity-80">GPay, PhonePe, Paytm</div>
+                        <Smartphone className="h-5 w-5 sm:h-6 sm:w-6 mr-2 flex-shrink-0" />
+                        <div className="text-left min-w-0">
+                          <div className="font-semibold text-base sm:text-lg truncate">UPI</div>
+                          <div className="text-xs sm:text-sm opacity-80 truncate">GPay, PhonePe, Paytm</div>
                         </div>
                       </Button>
                       <Button
@@ -166,14 +166,14 @@ export default function DonateSection() {
                         onClick={() => setPaymentMethod("card")}
                         className={`rounded-xl h-auto py-4 sm:py-6 ${
                           paymentMethod === "card"
-                            ? "bg-blue-900 text-white"
-                            : "hover:border-blue-900"
+                            ? "bg-blue-900 text-white hover:bg-blue-800"
+                            : "hover:bg-blue-900 hover:text-white hover:border-blue-900"
                         }`}
                       >
-                        <CreditCard className="h-5 w-5 sm:h-6 sm:w-6 mr-2" />
-                        <div className="text-left">
-                          <div className="font-semibold text-base sm:text-lg">Card</div>
-                          <div className="text-xs sm:text-sm opacity-80">Credit / Debit</div>
+                        <CreditCard className="h-5 w-5 sm:h-6 sm:w-6 mr-2 flex-shrink-0" />
+                        <div className="text-left min-w-0">
+                          <div className="font-semibold text-base sm:text-lg truncate">Card</div>
+                          <div className="text-xs sm:text-sm opacity-80 truncate">Credit / Debit</div>
                         </div>
                       </Button>
                     </div>
@@ -266,7 +266,7 @@ export default function DonateSection() {
                     <Input
                       id="phone"
                       type="tel"
-                      placeholder="+91 XXXXXXXXXX"
+                      placeholder="+91 9848037766"
                       value={donorInfo.phone}
                       onChange={(e) => setDonorInfo({ ...donorInfo, phone: e.target.value })}
                       className="rounded-xl mt-1 py-3 text-base sm:text-base"

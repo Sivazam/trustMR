@@ -9,7 +9,7 @@ import GallerySection from "@/components/GallerySection";
 import DonateSection from "@/components/DonateSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
+import BackToTopButton from "@/components/BackToTopButton";
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
         <ContactSection />
       </div>
       <Footer />
-      <ScrollToTop />
+      <BackToTopButton />
     </main>
   );
 }

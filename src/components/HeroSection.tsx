@@ -81,23 +81,23 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="flex items-center justify-center space-x-2 mb-8 sm:mb-6">
-              <Heart className="h-6 w-6 sm:h-8 sm:w-8 text-amber-500" />
+            <div className="flex items-center justify-center space-x-2 mb-6 sm:mb-4">
+              <Heart className="h-5 w-5 sm:h-6 sm:w-6 text-amber-500" />
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 sm:mb-6 leading-relaxed">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-6 leading-relaxed">
               {slides[currentSlide].title}
             </h1>
 
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl text-blue-100 mb-10 sm:mb-8 font-light leading-relaxed px-2">
+            <p className="text-base sm:text-lg md:text-xl text-blue-100 mb-10 sm:mb-8 font-light leading-relaxed px-2">
               {slides[currentSlide].subtitle}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-4 mb-10 sm:mb-8">
-              <CTAButton href="#donate" variant="primary" className="w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-4 mb-8 sm:mb-6">
+              <CTAButton href="#donate" variant="primary" className="w-full sm:w-auto text-sm py-2.5 sm:py-3 px-5 sm:px-6">
                 Donate Now
               </CTAButton>
-              <CTAButton href="#contact" variant="secondary" className="hidden sm:block w-full sm:w-auto">
+              <CTAButton href="#contact" variant="secondary" className="hidden sm:block w-full sm:w-auto text-sm py-2.5 sm:py-3 px-5 sm:px-6">
                 Become a Volunteer
               </CTAButton>
             </div>

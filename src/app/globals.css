@@ -139,6 +139,7 @@
   section {
     width: 100%;
     max-width: 100%;
+    scroll-margin-top: 80px;
   }
   img, video {
     max-width: 100%;
@@ -146,6 +147,15 @@
   main, footer, nav {
     width: 100%;
   }
+}
+
+/* Ensure fixed elements are always visible */
+[style*="position: fixed"], .fixed {
+  position: fixed !important;
+}
+
+html, body {
+  overflow-x: hidden !important;
 }
 
 /* Override container to allow full width */
