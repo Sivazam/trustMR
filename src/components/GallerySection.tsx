@@ -104,20 +104,26 @@ interface GalleryImage {
 // ];
 
 
+// const galleryImages: GalleryImage[] = [
+//   { id: 1, src: "/media/i1.jpeg", category: "healthcare", title: "Healthcare Activities", description: "Volunteers providing care and support" },
+//   { id: 2, src: "/media/i2.jpeg", category: "martial-arts", title: "Martial Arts Training", description: "Girls learning self-defense skills" },
+//   { id: 3, src: "/media/i3.jpeg", category: "volunteer", title: "Volunteer Services", description: "Team working together for the community" },
+//   { id: 4, src: "/media/i4.jpeg", category: "interfaith", title: "Interfaith Programs", description: "Celebrating unity in diversity" },
+//   { id: 5, src: "/media/i5.jpeg", category: "community", title: "Community Celebrations", description: "Festivals and cultural events" },
+//   { id: 6, src: "/media/i6.jpeg", category: "healthcare", title: "Medical Camp", description: "Free health checkup camp" },
+//   { id: 7, src: "/media/i7.jpeg", category: "martial-arts", title: "Training Session", description: "Intensive martial arts practice" },
+//   { id: 8, src: "/media/i8.jpeg", category: "volunteer", title: "Volunteer Team", description: "Dedicated team members" },
+//   { id: 9, src: "/media/i9.jpeg", category: "community", title: "Community Event", description: "Annual gathering and celebration" },
+//   { id: 10, src: "/media/i10.jpeg", category: "interfaith", title: "Religious Harmony", description: "Supporting all faith communities" },
+//   { id: 11, src: "/media/i11.jpeg", category: "martial-arts", title: "Empowerment Workshop", description: "Building confidence through sports" },
+//   { id: 12, src: "/media/i12.jpeg", category: "healthcare", title: "Health Awareness", description: "Educational health programs" },
+//   { id: 13, src: "/media/i13.jpeg", category: "community", title: "Community Outreach", description: "Serving with compassion and unity" },
+// ];
+
 const galleryImages: GalleryImage[] = [
   { id: 1, src: "/media/i1.jpeg", category: "healthcare", title: "Healthcare Activities", description: "Volunteers providing care and support" },
   { id: 2, src: "/media/i2.jpeg", category: "martial-arts", title: "Martial Arts Training", description: "Girls learning self-defense skills" },
   { id: 3, src: "/media/i3.jpeg", category: "volunteer", title: "Volunteer Services", description: "Team working together for the community" },
-  { id: 4, src: "/media/i4.jpeg", category: "interfaith", title: "Interfaith Programs", description: "Celebrating unity in diversity" },
-  { id: 5, src: "/media/i5.jpeg", category: "community", title: "Community Celebrations", description: "Festivals and cultural events" },
-  { id: 6, src: "/media/i6.jpeg", category: "healthcare", title: "Medical Camp", description: "Free health checkup camp" },
-  { id: 7, src: "/media/i7.jpeg", category: "martial-arts", title: "Training Session", description: "Intensive martial arts practice" },
-  { id: 8, src: "/media/i8.jpeg", category: "volunteer", title: "Volunteer Team", description: "Dedicated team members" },
-  { id: 9, src: "/media/i9.jpeg", category: "community", title: "Community Event", description: "Annual gathering and celebration" },
-  { id: 10, src: "/media/i10.jpeg", category: "interfaith", title: "Religious Harmony", description: "Supporting all faith communities" },
-  { id: 11, src: "/media/i11.jpeg", category: "martial-arts", title: "Empowerment Workshop", description: "Building confidence through sports" },
-  { id: 12, src: "/media/i12.jpeg", category: "healthcare", title: "Health Awareness", description: "Educational health programs" },
-  { id: 13, src: "/media/i13.jpeg", category: "community", title: "Community Outreach", description: "Serving with compassion and unity" },
 ];
 
 
