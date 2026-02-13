@@ -12,7 +12,7 @@ const videos = [
     description: "Volunteers providing compassionate care...",
     thumbnail: "/media/thumb1.jpg", // optional if local
     color: "from-blue-900/90 to-blue-800/90",
-    src: "/media/v1.mp4"
+    src: "/media/v1.webm"
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const videos = [
     description: "Building confidence and strength...",
     thumbnail: "/media/thumb2.jpg",
     color: "from-amber-600/90 to-amber-500/90",
-    src: "/media/v2.mp4"
+    src: "/media/v2.webm"
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const videos = [
     description: "Selfless service bringing hope...",
     thumbnail: "/media/thumb3.jpg",
     color: "from-green-800/90 to-green-700/90",
-    src: "/media/v3.mp4"
+    src: "/media/v3.webm"
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const videos = [
     description: "Empowering the next generation...",
     thumbnail: "/media/thumb4.jpg",
     color: "from-purple-900/90 to-purple-800/90",
-    src: "/media/v4.mp4"
+    src: "/media/v4.webm"
   },
 ];
 

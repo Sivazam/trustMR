@@ -173,7 +173,7 @@ export default function GallerySection() {
           title="Our Gallery"
           subtitle="Visual stories of our journey, impact, and the lives we've touched"
         />
-
+        
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
             <Button
